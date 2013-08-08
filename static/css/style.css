@@ -1,0 +1,88 @@
+/* =============================================================================
+   App specific CSS file.
+   ========================================================================== */
+
+body {
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: "Georgia", serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Garamond", "Georgia", serif;
+    font-weight: 400;
+}
+h1 {
+    font-size: 40px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.form-control {
+  font-size: 16px;
+}
+
+.margin-base-vertical {
+    margin: 20px 0;
+}
+
+.sentiment table {
+  font-size: 16px;
+}
+
+.sentiment .positive {
+  color: #66cc33;
+}
+
+.sentiment .very-positive {
+  color: #33cc66;
+}
+
+.sentiment .neutral {
+  color: #000099;
+}
+
+.sentiment .negative {
+  color: #993300;
+}
+
+footer {
+    font-size: 60%;
+    text-align: right;
+    letter-spacing: 0;
+    color: #777;
+    font-family: "Helvetica", sans-serif;
+
+}
+
+.sentiment .very-negative {
+  color: #cc3300;
+}
+
+.btn {
+  font-family: "Helvetica", sans-serif;
+}
+
+.btn-default {
+color: #333333;
+background-color: #ffffff;
+border-color: #cccccc;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.btn-sm, .btn-xs {
+padding: 5px 10px;
+font-size: 12px;
+line-height: 1.5;
+border-radius: 3px;
+}
