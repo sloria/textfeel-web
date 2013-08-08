@@ -1,28 +1,23 @@
 (function() {
     var MAX_SENT = 100;
     var MIN_SENT = 0;
-    var TIMEOUT = 8000;
+    var TIMEOUT = 15000;
     var loadingImg = '<img id="loadingImage" src="/static/img/ajax-loader.gif" />';
     var scaleSentiment = function(score) {
         var scaled = (MAX_SENT - MIN_SENT) * (score - (-1.0)) / (1 - (-1));
         return Math.round(scaled);
-
     };
 
     var getSentimentText = function(score) {
         if (score <= -0.70){
             return {text: "Very negative", css: "very-negative"};
-        }
-        else if (score <= -0.2){
+        } else if (score <= -0.2){
             return {text: "Negative", css: "negative"};
-        }
-        else if (score >= 0.70){
+        } else if (score >= 0.70){
             return {text: "Very positive", css: "very-positive"};
-        }
-        else if (score >= 0.2){
+        } else if (score >= 0.2){
             return {text: "Positive", css: "positive"};
-        }
-        else{
+        } else{
             return {text: "Neutral", css: "neutral"};
         }
     };
@@ -91,7 +86,6 @@
         });
     };
 
-
     // Click handlers
     $("#analyzeSentiment").on("click", function(e) {
         e.preventDefault();
@@ -99,11 +93,6 @@
         updateSentiment(text);
         updateNounPhrases(text);
     });
-
-    // $("#analyzeTopics").on("click", function(e) {
-    //     e.preventDefault();
-    //     var text = $("textarea[name='text']")[0].value;
-    // });
 
     var toggleSentences = function() {
         var $sentDiv = $("#sentencesSentiment");

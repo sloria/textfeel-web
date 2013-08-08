@@ -24,7 +24,7 @@ def noun_phrases():
 def sentences_sentiment():
     text = get_text(request)
     blob = TextBlob(text)
-    sentences = [{"sentence": str(s), "sentiment": s.sentiment[0]} for s in blob.sentences]
+    sentences = [{"sentence": unicode(s), "sentiment": s.sentiment[0]} for s in blob.sentences]
     return jsonify({"result": sentences})
 
 def get_text(req):
@@ -37,10 +37,9 @@ def get_text(req):
         abort(404)
 
 ##### Views #####
-@app.route("/index")
 @app.route("/")
 def home():
     return render_template("home.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
