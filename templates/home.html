@@ -1,23 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <div class="col-lg-8 col-offset-2">
         <h1 class="margin-base-vertical">How does your text <strong>feel?</strong></h1>
         <form id="main-text" class="margin-base-vertical">
             <p>
               <textarea name="text" class="form-control" rows="15" placeholder="Enter some text"></textarea>
             </p>
             <p class="text-center">
-                <button id="analyzeSentiment" type="submit" class="btn btn-success btn-large">Analyze</button>
+                <button id="analyzeSentiment" type="submit" class="btn btn-success btn-lg">Analyze</button>
                 {# <button id="analyzeTopics" type="submit" class="btn btn-info btn-large">Get Topics</button> #}
             </p>
             </span>
         </form>
-      </div>
-</div><!-- end row -->
+</div>
 
 <div class="row">
-   <div class="col-lg-8 col-offset-2">
     <div class="panel">
 
       <div class="sentiment" id="sentimentPanel">
@@ -37,7 +34,6 @@
               </thead>
               <tbody></tbody>
           </table>
-
         </div>
       </div><!-- end sentiment -->
 
@@ -47,6 +43,5 @@
         </span>
       </div>
     </div>
-    </div><!-- end col -->
 </div><!-- end row -->
 {% endblock %}
