@@ -25,8 +25,8 @@
     var getSentimentElement = function(score){
         var text = getSentimentText(score);
         var elem = "<span class='sentiment " + text.css + "'>" +
-                        text.text +  " (" + scaleSentiment(score) + ")" +
-                    "</span>";
+        text.text +  " (" + scaleSentiment(score) + ")" +
+        "</span>";
         return elem;
     };
 
@@ -78,6 +78,7 @@
         updateValue("/api/sentiment", text, $sentValue, function(res) {
             $sentValue.empty();
             if (!text){
+                $("#breakdown").hide();
                 $sentValue.append("<em>No text.</em>");
             } else {
                 $sentValue.append(getSentimentElement(res.result));
@@ -86,12 +87,15 @@
         });
     };
 
-    // Click handlers
-    $("#analyzeSentiment").on("click", function(e) {
-        e.preventDefault();
-        var text = $("textarea[name='text']")[0].value;
-        updateSentiment(text);
-        updateNounPhrases(text);
+    // Event handlers
+    var timeout;
+    $("#text").on("paste input", function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            var text = $("textarea[name='text']")[0].value;
+            updateSentiment(text);
+            updateNounPhrases(text);
+        }, 250);
     });
 
     var toggleSentences = function() {
@@ -114,9 +118,9 @@
                 } else {
                     sentences.forEach(function(elem, index){
                         $tbody.append("<tr>" +
-                                        "<td>" + elem.sentence + "</td>" +
-                                        "<td>" + getSentimentElement(elem.sentiment) + "</td>" +
-                                    "</tr>");
+                            "<td>" + elem.sentence + "</td>" +
+                            "<td>" + getSentimentElement(elem.sentiment) + "</td>" +
+                            "</tr>");
                     });
                 }
             });
